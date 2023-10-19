@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Drawer from "@mui/material/Drawer";
-
+import { NavLink } from "react-router-dom";
 import { IconButton } from "@mui/material";
 
 export default function TemporaryDrawer() {
@@ -24,18 +24,18 @@ export default function TemporaryDrawer() {
         }}
       >
         <div className="drawer-container">
-          <a className="link" href="/">
+        <NavLink className="link" to="/">
             Home
-          </a>
-          <a className="link" href="/">
+          </NavLink>
+          <NavLink className="link" to="/compare">
             Compare
-          </a>
-          <a className="link" href="/">
+          </NavLink>
+          <NavLink className="link" to="/watchlist">
             WatchList
-          </a>
-          <a className="link" href="/">
+          </NavLink>
+          <NavLink className="link" to="/dashboard">
             DashBoard
-          </a>
+          </NavLink>
         </div>
       </Drawer>
     </div>

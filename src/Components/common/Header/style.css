@@ -15,9 +15,12 @@
   z-index: 20;
 }
 .logo {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
-
+.logoLink{
+  text-decoration: none;
+  color: var(--white);
+}
 .links {
   display: flex;
   align-items: center;
@@ -34,7 +37,7 @@
 .link:hover {
   color: var(--white);
 }
-.link:active {
+.link.active {
   color: var(--white);
 }
 .mobile-drawer {

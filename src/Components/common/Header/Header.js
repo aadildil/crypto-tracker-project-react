@@ -2,28 +2,35 @@ import React from "react";
 import "./style.css";
 import Button from "../Button";
 import TemporaryDrawer from "./drawer.js";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+
+  const navigate=useNavigate();
+
   return (
     <div className="header">
       <div className="navbar">
-        <h1 className="logo">
+      <NavLink className="logoLink" to="/">
+      <h1 className="logo">
           CoinWaves <span style={{ color: "var(--blue)" }}>.</span>{" "}
         </h1>
+      </NavLink>
         <div className="links">
-          <a className="link" href="/">
+          <NavLink className="link" to="/">
             Home
-          </a>
-          <a className="link" href="/">
+          </NavLink>
+          <NavLink className="link" to="/compare">
             Compare
-          </a>
-          <a className="link" href="/">
+          </NavLink>
+          <NavLink className="link" to="/watchlist">
             WatchList
-          </a>
+          </NavLink>
           <Button
             text={"DashBoard"}
             clickFunction={() => {
-              console.log("clicked");
+             navigate("/dashboard")
             }}
             outlined={false}
           />
