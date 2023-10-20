@@ -6,6 +6,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { createTheme, ThemeProvider } from "@mui/material";
 import "./style.css";
+import Grid from "../Grids";
 
 const style = {
   color: "var(--white)",
@@ -32,7 +33,7 @@ function TabsComponent({ coins }) {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}  >
       <TabContext value={value}>
         <div>
           <TabList onChange={handleChange} aria-label="" variant="fullWidth">
@@ -40,12 +41,13 @@ function TabsComponent({ coins }) {
             <Tab label="List" value="List" sx={style} />
           </TabList>
         </div>
-        <TabPanel value="Grid">{coins.map((item,index)=>(
-          <p key={item.id}>
-            {item.name}
-
-          </p>
-        ))}</TabPanel>
+        <TabPanel value="Grid">
+          <div className="grid-flex">
+          {coins.map((coin,index)=>(
+          <Grid coin={coin} key={coin.id} />
+        ))}
+          </div>
+        </TabPanel>
         <TabPanel value="List">Item Two</TabPanel>
       </TabContext>
     </ThemeProvider>
