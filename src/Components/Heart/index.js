@@ -36,7 +36,7 @@ const Heart = ({ id }) => {
       const newWatchList = globalWatchList.filter((item) => item !== id);
       localStorage.setItem("watchList", JSON.stringify(newWatchList));
       setGlobalWatchList(globalWatchList.filter((item) => item !== id));
-      window.location.reload();
+      
       // Update localStorage
       
     }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Header from "../Components/common/Header/Header";
@@ -13,6 +13,7 @@ import convertDate from "../Functions/convertDate";
 import SelectDays from "../Components/Coin/selectDays";
 import { makeChartData } from "../Functions/makeChartData";
 import ToggleChart from "../Components/Coin/toggleChart";
+import watchListContext from "../context/watchListContext";
 
 const CoinPage = () => {
   const { id } = useParams();
@@ -22,9 +23,20 @@ const CoinPage = () => {
   const [loading, setIsLoading] = useState(true);
   const [chartData, setChartData] = useState(null);
   const [priceType, setPriceType] = useState("prices");
+  const {globalWatchList,setGlobalWatchList}=useContext(watchListContext)
 
   useEffect(() => {
     if (!id) return;
+    const myList=localStorage.getItem("watchList");
+    if(myList)
+    {
+      setGlobalWatchList(JSON.parse(myList));
+    }
+    else
+    {
+      localStorage.setItem("watchList",JSON.stringify(globalWatchList))
+    }
+
     getData();
   }, []);
 

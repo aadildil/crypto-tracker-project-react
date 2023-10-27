@@ -23,6 +23,8 @@ const SelectCoins = ({coin1,coin2,handleCoinChange}) => {
         borderColor: "#3a80e9",
       },
     },
+    
+    
   };
 
   useEffect(() => {

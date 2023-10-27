@@ -4,6 +4,7 @@ import { get100Coins } from "../Functions/get100Coins";
 import { useState } from "react";
 import TabsComponent from "../Components/Dashboard/tabs/TabsComponent";
 import watchListContext from "../context/watchListContext";
+import BackToTop from "../Components/common/backToTop/BackToTop";
 
 const WatchList = () => {
   const {globalWatchList,setGlobalWatchList}=useContext(watchListContext)
@@ -23,7 +24,7 @@ const WatchList = () => {
 
 
     getData();
-  }, []);
+  },[globalWatchList]);
 
   async function getData() {
     const myCoin = await get100Coins();
@@ -36,6 +37,7 @@ const WatchList = () => {
   return (
     <div>
       <Header />
+      <BackToTop />
       {coins ? <TabsComponent coins={coins} /> : <p>no items in the list</p>}
     </div>
   );

@@ -12,6 +12,8 @@ import CoinDetails from "../Components/Coin/coinInfo";
 import LineChart from "../Components/Coin/linechart";
 import ToggleChart from "../Components/Coin/toggleChart";
 import watchListContext from "../context/watchListContext";
+import BackToTop from "../Components/common/backToTop/BackToTop";
+
 const Compare = () => {
   const {globalWatchList,setGlobalWatchList}=useContext(watchListContext)
   const [coin1, setCoin1] = useState("bitcoin");
@@ -51,10 +53,19 @@ const Compare = () => {
 
   useEffect(() => {
   
+    const myList=localStorage.getItem("watchList");
+    if(myList)
+    {
+      setGlobalWatchList(JSON.parse(myList));
+    }
+    else
+    {
+      localStorage.setItem("watchList",JSON.stringify(globalWatchList))
+    }
 
     getData();
    
-  }, []);
+  },[]);
 
   async function getData() {
     setIsLoading(true);
@@ -102,6 +113,7 @@ const Compare = () => {
         <LoaderDisplay />
       ) : (
         <div>
+           <BackToTop />
           <div className="compare-container">
             <SelectCoins
               coin1={coin1}

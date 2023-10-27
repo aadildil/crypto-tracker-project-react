@@ -31,6 +31,8 @@ body
     color: var(--white);
     font-family: 'Inter', sans-serif;
 
+    overflow-x: hidden;
+
     
   
 }
@@ -98,4 +100,17 @@ body
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+
+  @media only screen and (max-width:800px)
+  {
+    .compare-container
+  {
+   
+   
+    flex-direction: column;
+    
+    align-items: flex-start;
+  }
+
   }
