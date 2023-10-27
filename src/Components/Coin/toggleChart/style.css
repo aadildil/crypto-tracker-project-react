@@ -6,7 +6,13 @@
 }
 @media only screen and (max-width: 800px) {
   .toggle-chart-btn {
-    padding: 0.5rem !important;
+   
     font-size: 0.7rem !important;
+    width: 3rem !important;
+   
+  }
+  .toggle-chart-container button {
+    padding-block:0.2rem !important ;
+    font-size: 0.6rem !important;
   }
 }
