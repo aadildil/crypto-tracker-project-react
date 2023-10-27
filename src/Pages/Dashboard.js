@@ -1,34 +1,68 @@
-import React,{useEffect,useState} from "react";
-import Header from "../Components/common/Header/Header" 
+import React, { useEffect, useState } from "react";
+import Header from "../Components/common/Header/Header";
 import TabsComponent from "../Components/Dashboard/tabs/TabsComponent";
 import axios from "axios";
+import Search from "../Components/Dashboard/search";
+import PaginationComp from "../Components/Dashboard/pagination/Pagination";
+import LoaderDisplay from "../Components/common/loader/Loader";
+import BackToTop from "../Components/common/backToTop/BackToTop";
+import { get100Coins } from "../Functions/get100Coins";
 
+const Dashboard = () => {
+  const [coins, setCoins] = useState([]);
+  const [search, setSearch] = useState("");
+  const [paginatedCoins, setPaginatedCoins] = useState([]);
+  const [loading, setIsLoading] = useState(true);
 
+  const onSearch = (e) => {
+    console.log(e.target.value);
+    setSearch(e.target.value);
+  };
 
+  const [page, setPage] = useState(1);
+  const handlePageChange = (event, value) => {
+    setPage(value);
+    var preIndex = (value - 1) * 10;
+    setPaginatedCoins(coins.slice(preIndex, preIndex + 10));
+  };
 
+  var filteredCoins = coins.filter(
+    (coin, index) =>
+      coin.name.toLowerCase().includes(search.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(search.toLowerCase())
+  );
 
+  useEffect(() => {
+    setIsLoading(true);
+    getData();
+  }, []);
 
-const Dashboard=()=>{
+  async function getData() {
+    const myCoin = await get100Coins();
+    if (myCoin) {
+      setCoins(myCoin);
+      setPaginatedCoins(myCoin.slice(0, 10));
+      setIsLoading(false);
+    }
+  }
 
-    const [coins,setCoins]=useState([])
-
-    useEffect(() => {
-        axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en")
-            .then((response) => {
-               
-               
-                setCoins(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
-
-    return (
+  return (
+    <div>
+       <Header />
+      {loading ? (
+        <LoaderDisplay />
+      ) : (
         <div>
-            <Header/>
-            <TabsComponent coins={coins} />
+          <BackToTop />
+         
+          <Search search={search} onSearch={onSearch} />
+          <TabsComponent coins={search ? filteredCoins : paginatedCoins} />
+          {!search && (
+            <PaginationComp page={page} handlePageChange={handlePageChange} />
+          )}
         </div>
-    )
-}
+      )}
+    </div>
+  );
+};
 export default Dashboard;

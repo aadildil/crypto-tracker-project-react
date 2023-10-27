@@ -17,7 +17,7 @@
   flex-wrap: nowrap;
 }
 .track-crypto-heading {
-  -webkit-text-stroke: 3px white;
+  -webkit-text-stroke: 3px var(--white);
 }
 .track-crypto-heading:hover {
   transition: all 0.2s ease-in;

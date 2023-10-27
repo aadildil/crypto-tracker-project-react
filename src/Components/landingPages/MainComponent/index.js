@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./style.css";
 import Button from "../../common/Button";
 import { Dashboard } from "@mui/icons-material";
@@ -6,8 +6,33 @@ import { Dashboard } from "@mui/icons-material";
 import gradient from "../../../Assets/gradient.png";
 import iphone from "../../../Assets/iphone.png";
 import { animate, motion } from "framer-motion";
+import fetchWatchList from "../../../Functions/fetchWatchList"
+import watchListContext from "../../../context/watchListContext" ;
 
 const MainComponent = () => {
+
+
+
+
+
+
+const {globalWatchList,setGlobalWatchList}=useContext(watchListContext)
+
+
+  useEffect(()=>{
+    const storedWatchList = JSON.parse(localStorage.getItem("watchList"));
+    if (storedWatchList) {
+      setGlobalWatchList(storedWatchList);
+    }
+    else {
+      // If there's no watchlist in localStorage, create an empty one
+      localStorage.setItem("watchList", JSON.stringify([]));
+    }
+  },[])
+
+
+
+
   return (
     <div className="hero-container">
       <div className="info">
@@ -48,8 +73,12 @@ const MainComponent = () => {
             }}
             outlined={true}
           />
+
+          
+          
         </div>
       </div>
+      
       <div className="phone-container">
         <img src={gradient} className="phone-gradient" />
         <motion.img src={iphone} className="iphone" initial={{y:0}} animate={{y:20}} transition={{duration:2,repeat:Infinity,repeatType:"mirror",type:"smooth"}} />

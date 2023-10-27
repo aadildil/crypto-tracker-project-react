@@ -4,20 +4,21 @@ import Button from "../Button";
 import TemporaryDrawer from "./drawer.js";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import DarkMode from "../DarkMode/DarkMode";
 
 const Header = () => {
-
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="header">
       <div className="navbar">
-      <NavLink className="logoLink" to="/">
-      <h1 className="logo">
-          CoinWaves <span style={{ color: "var(--blue)" }}>.</span>{" "}
-        </h1>
-      </NavLink>
+        <NavLink className="logoLink" to="/">
+          <h1 className="logo">
+            CoinWaves <span style={{ color: "var(--blue)" }}>.</span>{" "}
+          </h1>
+        </NavLink>
         <div className="links">
+          <DarkMode />
           <NavLink className="link" to="/">
             Home
           </NavLink>
@@ -30,7 +31,7 @@ const Header = () => {
           <Button
             text={"DashBoard"}
             clickFunction={() => {
-             navigate("/dashboard")
+              navigate("/dashboard");
             }}
             outlined={false}
           />

@@ -1,26 +1,43 @@
 .grid-container
 {
-    background-color: var(--darkgrey);
+    background-color: var(--wrapperColor);
     width: 300px;
     height: 300px;
-    border: 0px solid var(--green);
+    border: 2px solid var(--wrapperColor);
     border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-inline: 0.5rem;
+ 
     
 }
 .grid-container:hover
 {
     transition: scale 0.3s ease;
     scale: 1.05;
-    border-width:1px;
+    border-color: var(--green);
+    
+}
+.grid-container-red:hover
+{
+    transition: scale 0.3s ease;
+    scale: 1.05;
+    border-color: var(--red);
     
 }
 .coin-info
 {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    width: 100%;
     margin:  1.5rem;
+}
+.coin-info-container
+{
+    display: flex;
+    gap: 1rem;
 }
 .coin-logo
 {
@@ -52,7 +69,7 @@
 }
 .chip-flex
 {
-    margin: 1rem 1.5rem;
+    margin-inline: 1.5rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -112,3 +129,18 @@
    transition: all 0.3s ease;
 }
 
+.price-container
+{
+    margin-inline:1.5rem;
+}
+.current-price
+{
+    color: var(--green);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.total-volume,.market-cap
+{
+    color: var(--grey);
+    font-size: 0.8rem;
+}

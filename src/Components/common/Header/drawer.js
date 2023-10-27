@@ -3,6 +3,7 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import Drawer from "@mui/material/Drawer";
 import { NavLink } from "react-router-dom";
 import { IconButton } from "@mui/material";
+import DarkMode from "../DarkMode/DarkMode";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = useState(false);
@@ -24,6 +25,7 @@ export default function TemporaryDrawer() {
         }}
       >
         <div className="drawer-container">
+        <DarkMode />
         <NavLink className="link" to="/">
             Home
           </NavLink>

@@ -7,6 +7,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import { createTheme, ThemeProvider } from "@mui/material";
 import "./style.css";
 import Grid from "../Grids";
+import List from "../List";
 
 const style = {
   color: "var(--white)",
@@ -48,7 +49,17 @@ function TabsComponent({ coins }) {
         ))}
           </div>
         </TabPanel>
-        <TabPanel value="List">Item Two</TabPanel>
+        <TabPanel value="List">
+         <table className="list-table">
+          {
+            coins.map((coin,index)=>(
+              <div className="coin-grey-wrapper">
+                <List coin={coin} key={coin.id} />
+              </div>
+            ))
+          }
+         </table>
+        </TabPanel>
       </TabContext>
     </ThemeProvider>
   );

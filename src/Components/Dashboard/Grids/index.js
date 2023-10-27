@@ -1,19 +1,33 @@
 import React from "react";
 import "./style.css";
-
+import { useNavigate } from "react-router-dom";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
-import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
+import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
+import Heart from "../../Heart";
 
 const Grid = ({ coin }) => {
-  console.log(coin);
+  const navigate = useNavigate();
+
   return (
-    <div className="grid-container">
+    <div
+      className={`grid-container ${
+        coin.price_change_percentage_24h < 0 && "grid-container-red"
+      } `}
+      onClick={() => {
+        navigate(`/coin/${coin.id}`);
+      }}
+    >
       <div className="coin-info">
-        <img src={coin.image} className="coin-logo" />
-        <div className="coin-basic">
-          <p className="coin-symbol">{coin.symbol}</p>
-          <p className="coin-name">{coin.name}</p>
+        <div className="coin-info-container">
+          <img src={coin.image} className="coin-logo" />
+          <div className="coin-basic">
+            <p className="coin-symbol">{coin.symbol}</p>
+            <p className="coin-name">{coin.name}</p>
+          </div>
         </div>
+       
+          <Heart id={coin.id} />
+       
       </div>
 
       {coin.price_change_percentage_24h >= 0 ? (
@@ -22,7 +36,7 @@ const Grid = ({ coin }) => {
             {coin.price_change_percentage_24h.toFixed(2)}%
           </div>
           <div>
-            <TrendingUpRoundedIcon className="trend-chip"/>
+            <TrendingUpRoundedIcon className="trend-chip" />
           </div>
         </div>
       ) : (
@@ -35,6 +49,25 @@ const Grid = ({ coin }) => {
           </div>
         </div>
       )}
+      <div className="price-container">
+        <h3
+          className="current-price"
+          style={{
+            color:
+              coin.price_change_percentage_24h >= 0
+                ? "var(--green)"
+                : "var(--red)",
+          }}
+        >
+          ${coin.current_price.toLocaleString()}
+        </h3>
+        <p className="total-volume">
+          total volume : {coin.total_volume.toLocaleString()}
+        </p>
+        <p className="market-cap">
+          market cap : ${coin.market_cap.toLocaleString()}
+        </p>
+      </div>
     </div>
   );
 };

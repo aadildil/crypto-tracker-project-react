@@ -13,10 +13,14 @@
   --darkgrey: #1b1b1b;
   --green: #008000;
   --blue: #006aff;
-  
+  --linkColor:#808080;
+  --wrapperColor:#1b1b1b;
   --red: #FF0000;
 }
 
+html{
+  scroll-behavior: smooth;
+}
 
 body
 {
@@ -26,8 +30,8 @@ body
     background-color: var(--black);
     color: var(--white);
     font-family: 'Inter', sans-serif;
-    padding: 10px;
-   
+
+    
   
 }
 
@@ -63,4 +67,35 @@ body
     -moz-user-drag: none;
     -o-user-drag: none;
     
+  }
+  .coin-grey-wrapper
+  {
+    margin:0.5rem  2rem;
+    background-color: var(--wrapperColor);
+    border-radius: 1rem;
+    padding:.5rem 1rem ;
+    
+    
+    
+  }
+  .coin-grey-wrapper tr:hover
+  {
+    transition: none !important;
+    scale: 1 !important ;
+    border-radius: 1rem !important;
+    
+  }
+  .grey-wrapper-container
+  {
+    margin: 2rem;
+    background-color: var(--wrapperColor);
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+  .compare-container
+  {
+    margin: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }

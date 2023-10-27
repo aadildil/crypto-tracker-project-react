@@ -27,7 +27,7 @@
   gap: 1.5rem;
 }
 .link {
-  color: var(--grey);
+  color: var(--linkColor);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
