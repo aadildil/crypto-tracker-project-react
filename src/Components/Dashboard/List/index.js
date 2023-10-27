@@ -52,7 +52,7 @@ const List = ({ coin }) => {
       <td className="td-current-price">
         <Tooltip title="current price">
           <h3
-            className="current-price"
+            className="list-current-price"
             style={{
               color:
                 coin.price_change_percentage_24h >= 0
