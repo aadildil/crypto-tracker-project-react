@@ -79,6 +79,7 @@ body
     
     
     
+    
   }
   .coin-grey-wrapper tr:hover
   {
@@ -115,6 +116,7 @@ body
   .coin-grey-wrapper
   {
     padding: 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem;
   }
   .grey-wrapper-container
   {

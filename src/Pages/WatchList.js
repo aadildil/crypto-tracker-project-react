@@ -24,7 +24,7 @@ const WatchList = () => {
 
 
     getData();
-  },[globalWatchList]);
+  },[]);
 
   async function getData() {
     const myCoin = await get100Coins();

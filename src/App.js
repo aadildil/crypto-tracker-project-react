@@ -13,6 +13,7 @@ import WatchList from "./Pages/WatchList";
 import WatchListProvider from "./context/watchListProvider";
 import DarkThemeContextProvider from "./context/darkThemeContextProvider";
 import { ToastContainer } from "react-toastify";
+import ErrorPage from "./Components/common/error/Error";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Route path="/coin/:id" element={<CoinPage />} />
               <Route path="/compare" element={<Compare />} />
               <Route path="/watchlist" element={<WatchList />} />
+              <Route path="/error" element={<ErrorPage />} />
             </Routes>
             <ToastContainer/>
           </BrowserRouter>
