@@ -205,13 +205,14 @@ td {
     
     gap: 0.3rem;
     
+    
     padding-inline: 0rem;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
    
   td 
   {
-    width: 19%;
+    width: 14%;
   }
 
   .list-image {
@@ -231,13 +232,13 @@ td {
     display: none;
   }
   .list-price-chip {
-    min-width: 45px;
-    font-size: 0.8rem;
-    padding: 0.3rem 0.5rem;
+    min-width: 30px;
+    font-size: 0.6rem;
+    padding: 0.3rem 0.3rem;
   }
   .current-price {
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.6rem;
+    font-weight: 400;
   }
   .td-total-volume
   {
@@ -254,6 +255,6 @@ td {
   .list-market-cap,.list-total-volume
 {
   
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 }

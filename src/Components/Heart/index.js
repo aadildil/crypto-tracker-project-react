@@ -1,16 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import watchListContext from "../../context/watchListContext";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./style.css";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import DarkThemeContext from "../../context/darkThemeContext";
+
 const Heart = ({ id }) => {
   const { globalWatchList, setGlobalWatchList } = useContext(watchListContext);
+  const { darkMode, setDarkMode } = useContext(DarkThemeContext);
+
+  
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    console.log(id);
+   
     if (globalWatchList.includes(id)) {
       setLiked(true);
     }
@@ -29,8 +34,20 @@ const Heart = ({ id }) => {
       }
        
       setGlobalWatchList(newWatchList);
-
       localStorage.setItem("watchList", JSON.stringify(newWatchList));
+
+      toast.success('Added to WatchList', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: darkMode?"dark":"light",
+        });
+
+     
     } else {
 
       const newWatchList = globalWatchList.filter((item) => item !== id);
@@ -38,6 +55,17 @@ const Heart = ({ id }) => {
       setGlobalWatchList(globalWatchList.filter((item) => item !== id));
       
       // Update localStorage
+
+      toast.error('Removed from watchList', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: darkMode?"dark":"light",
+        });
       
     }
     setLiked(!liked); // Toggle the liked state
@@ -51,6 +79,7 @@ const Heart = ({ id }) => {
         width: "fit-content",
       }}
     >
+      
       <FormControlLabel
         control={
           <Checkbox
@@ -66,6 +95,7 @@ const Heart = ({ id }) => {
         }
       />
     </div>
+    
   );
 };
 export default Heart;

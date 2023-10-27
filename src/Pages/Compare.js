@@ -13,6 +13,7 @@ import LineChart from "../Components/Coin/linechart";
 import ToggleChart from "../Components/Coin/toggleChart";
 import watchListContext from "../context/watchListContext";
 import BackToTop from "../Components/common/backToTop/BackToTop";
+import Footer from "../Components/common/Footer/Footer";
 
 const Compare = () => {
   const {globalWatchList,setGlobalWatchList}=useContext(watchListContext)
@@ -20,7 +21,7 @@ const Compare = () => {
   const [coin2, setCoin2] = useState("ethereum");
   const [coinData1, setCoinData1] = useState({});
   const [coinData2, setCoinData2] = useState({});
-  const [days, setDays] = useState(30);
+  const [days, setDays] = useState(7);
   const [isLoading, setIsLoading] = useState(true);
   const [priceType, setPriceType] = useState("prices");
   const [chartData, setChartData] = useState({});
@@ -145,6 +146,7 @@ const Compare = () => {
           <CoinDetails coin={coinData2} />
         </div>
       )}
+      <Footer/>
     </div>
   );
 };

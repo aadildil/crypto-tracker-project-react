@@ -14,12 +14,14 @@ import SelectDays from "../Components/Coin/selectDays";
 import { makeChartData } from "../Functions/makeChartData";
 import ToggleChart from "../Components/Coin/toggleChart";
 import watchListContext from "../context/watchListContext";
+import Footer from "../Components/common/Footer/Footer";
+import BackToTop from "../Components/common/backToTop/BackToTop";
 
 const CoinPage = () => {
   const { id } = useParams();
 
   const [coinData, setCoinData] = useState(null);
-  const [days, setDays] = useState(60);
+  const [days, setDays] = useState(7);
   const [loading, setIsLoading] = useState(true);
   const [chartData, setChartData] = useState(null);
   const [priceType, setPriceType] = useState("prices");
@@ -77,6 +79,7 @@ const CoinPage = () => {
 
   return (
     <div>
+      <BackToTop />
       <Header />
       {loading ? (
         <LoaderDisplay />
@@ -97,6 +100,7 @@ const CoinPage = () => {
           <CoinDetails coin={coinData} />
         </div>
       )}
+      <Footer/>
     </div>
   );
 };

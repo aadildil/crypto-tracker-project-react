@@ -12,7 +12,7 @@ export const makeChartData = (setChartData, prices1, prices2) => {
           borderWidth: 2,
           fill: false,
           tension: 0.25,
-          pointRadius: 2,
+          pointRadius: 0,
           yAxisID:"coin1"
         },
         {
@@ -22,7 +22,7 @@ export const makeChartData = (setChartData, prices1, prices2) => {
           borderWidth: 2,
           fill: false,
           tension: 0.25,
-          pointRadius: 2,
+          pointRadius: 0,
           yAxisID:"coin2"
         },
       ],

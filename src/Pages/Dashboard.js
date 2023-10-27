@@ -7,6 +7,7 @@ import PaginationComp from "../Components/Dashboard/pagination/Pagination";
 import LoaderDisplay from "../Components/common/loader/Loader";
 import BackToTop from "../Components/common/backToTop/BackToTop";
 import { get100Coins } from "../Functions/get100Coins";
+import Footer from "../Components/common/Footer/Footer";
 
 const Dashboard = () => {
   const [coins, setCoins] = useState([]);
@@ -62,6 +63,7 @@ const Dashboard = () => {
           )}
         </div>
       )}
+      <Footer/>
     </div>
   );
 };

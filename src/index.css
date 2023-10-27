@@ -112,5 +112,13 @@ body
     
     align-items: flex-start;
   }
+  .coin-grey-wrapper
+  {
+    padding: 0.5rem 0.5rem;
+  }
+  .grey-wrapper-container
+  {
+    padding: 1rem 1rem;
+  }
 
   }

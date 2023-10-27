@@ -12,6 +12,7 @@ import Compare from "./Pages/Compare";
 import WatchList from "./Pages/WatchList";
 import WatchListProvider from "./context/watchListProvider";
 import DarkThemeContextProvider from "./context/darkThemeContextProvider";
+import { ToastContainer } from "react-toastify";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Route path="/compare" element={<Compare />} />
               <Route path="/watchlist" element={<WatchList />} />
             </Routes>
+            <ToastContainer/>
           </BrowserRouter>
         </div>
       </WatchListProvider>

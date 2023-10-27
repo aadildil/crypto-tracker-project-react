@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import Heart from "../../Heart";
+import { Tooltip } from "@mui/material";
+import { ToastContainer } from "react-toastify";
 
 const Grid = ({ coin }) => {
   const navigate = useNavigate();
@@ -26,7 +28,10 @@ const Grid = ({ coin }) => {
           </div>
         </div>
        
-          <Heart id={coin.id} />
+        <Tooltip title="add to watchlist">
+        <Heart id={coin.id}/>
+        
+        </Tooltip>
        
       </div>
 

@@ -8,10 +8,11 @@ import iphone from "../../../Assets/iphone.png";
 import { animate, motion } from "framer-motion";
 import fetchWatchList from "../../../Functions/fetchWatchList"
 import watchListContext from "../../../context/watchListContext" ;
+import { useNavigate } from "react-router-dom";
 
 const MainComponent = () => {
 
-
+const navigate=useNavigate();
 
 
 
@@ -20,13 +21,14 @@ const {globalWatchList,setGlobalWatchList}=useContext(watchListContext)
 
 
   useEffect(()=>{
-    const storedWatchList = JSON.parse(localStorage.getItem("watchList"));
-    if (storedWatchList) {
-      setGlobalWatchList(storedWatchList);
+    const myList=localStorage.getItem("watchList");
+    if(myList)
+    {
+      setGlobalWatchList(JSON.parse(myList));
     }
-    else {
-      // If there's no watchlist in localStorage, create an empty one
-      localStorage.setItem("watchList", JSON.stringify([]));
+    else
+    {
+      localStorage.setItem("watchList",JSON.stringify(globalWatchList))
     }
   },[])
 
@@ -61,7 +63,7 @@ const {globalWatchList,setGlobalWatchList}=useContext(watchListContext)
           <Button
             text={"Dashboard"}
             clickFunction={() => {
-              console.log("dashboard clicked");
+             navigate("/dashboard")
             }}
             outlined={false}
           />

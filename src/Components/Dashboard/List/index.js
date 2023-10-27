@@ -8,14 +8,18 @@ import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import Tooltip from "@mui/material/Tooltip";
 import { useNavigate } from "react-router-dom";
 import Heart from "../../Heart";
+import { ToastContainer } from "react-toastify";
 
 const List = ({ coin }) => {
   // console.log(coin);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   return (
-    <tr className="table-row"  onClick={()=>{
-      navigate(`/coin/${coin.id}`)
-    }}>
+    <tr
+      className="table-row"
+      onClick={() => {
+        navigate(`/coin/${coin.id}`);
+      }}
+    >
       <td className="td-image">
         <img className="list-image" src={coin.image} />
       </td>
@@ -62,7 +66,9 @@ const List = ({ coin }) => {
       </td>
       <td className="td-total-volume">
         <Tooltip title=" total volume ">
-          <p className="list-total-volume">{coin.total_volume.toLocaleString()}</p>
+          <p className="list-total-volume">
+            {coin.total_volume.toLocaleString()}
+          </p>
         </Tooltip>
       </td>
       <td className="td-market-cap">
@@ -76,7 +82,10 @@ const List = ({ coin }) => {
         </Tooltip>
       </td>
       <td>
-        <Heart id={coin.id}/>
+        <Tooltip title="add to watchlist">
+          <Heart id={coin.id}  />
+          
+        </Tooltip>
       </td>
     </tr>
   );
