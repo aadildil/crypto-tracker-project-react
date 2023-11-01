@@ -63,7 +63,7 @@ function LineChart({ chartData, priceType, multiAxis }) {
         //     position: "left",
         //     ticks: {
         //       callback: function (value, index, ticks) {
-        //         if (priceType === "prices") return "$" + value.toLocaleString();
+        //         if (priceType == "prices") return "$" + value.toLocaleString();
         //         else return "" + convertNumber(value);
         //       },
         //     },

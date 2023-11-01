@@ -5,7 +5,6 @@ import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import Heart from "../../Heart";
 import { Tooltip } from "@mui/material";
-import { ToastContainer } from "react-toastify";
 
 const Grid = ({ coin }) => {
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ const Grid = ({ coin }) => {
     >
       <div className="coin-info">
         <div className="coin-info-container">
-          <img src={coin.image} className="coin-logo" />
+          <img src={coin.image} className="coin-logo" alt="currency logo" />
           <div className="coin-basic">
             <p className="coin-symbol">{coin.symbol}</p>
             <p className="coin-name">{coin.name}</p>

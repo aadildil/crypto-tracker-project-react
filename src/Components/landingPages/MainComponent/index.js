@@ -21,6 +21,7 @@ const {globalWatchList,setGlobalWatchList}=useContext(watchListContext)
 
 
   useEffect(()=>{
+    
     const myList=localStorage.getItem("watchList");
     if(myList)
     {

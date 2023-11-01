@@ -8,7 +8,7 @@ import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import Tooltip from "@mui/material/Tooltip";
 import { useNavigate } from "react-router-dom";
 import Heart from "../../Heart";
-import { ToastContainer } from "react-toastify";
+
 
 const List = ({ coin }) => {
   // console.log(coin);
@@ -21,7 +21,7 @@ const List = ({ coin }) => {
       }}
     >
       <td className="td-image">
-        <img className="list-image" src={coin.image} />
+        <img className="list-image" src={coin.image} alt="currency logo" />
       </td>
       <td className="list-coin-basics">
         <p className="list-coin-symbol">{coin.symbol}</p>

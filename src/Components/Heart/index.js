@@ -22,6 +22,7 @@ const Heart = ({ id }) => {
   }, []);
 
   const handleLikeToggle = () => {
+    
     if (!liked) {
       let newWatchList;
       if(globalWatchList.length==1&&globalWatchList[0]=="")
